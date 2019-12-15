@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="WeatherATM is a one-stop-shop to look up zip codes or cities to get the current weather conditions and the five day forecast for the area">
+    <meta name="keywords" content="knoxville,weather,forecast,time,sunrise,sunset,zipcode,zip code,city,temperature,degree,celcius,wind speed,humidity">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WeatherATM">
+    <meta property="og:title" content="WeatherATM | Withdraw Local Weather at the Moment">
+    <meta name="geo:region" content="US-TN">
+    <meta name="geo.placename" content="Knoxville">
+    <meta name="geo.position" content="35.960638;-86.920739">
+    <title>Weather ATM | Withdraw Local Weather At The Moment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/indexStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <!-- font-family: 'Poppins', sans-serif; -->
+    <!--Created by: Michael Wilmouth-->
+    <!--Author: wilmouthworks.com-->
+</head>
+<body> 
+    <!--nav bar-->
+    <div id="searchSection" class="container-fluid search-section">
+        <div class="row" style="height: 100%;">
+            <div class="logo-box col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <h1>
+                    <span id="logoWeather">Weather</span><span id="logoATM">ATM</span>
+                </h1>
+            </div>
+            <div id="searchBar" class="search-bar col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="row" style="width: 100%; height: 100%;">
+                    <div class="search-box col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                        <input id="searchContent" class="search-content" type="text" placeholder="Search for weather in...">
+                    </div>
+                    <div id="zipButton" class="search-zip col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <p>Search Zip Code</p>
+                    </div>
+                    <div id="cityButton" class="search-city col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <p>Search City</p>
+                    </div>
+                    <div class="date-box col-sm-12 col-md-2 co-lg-2 col-xl-2">
+                        <p id="dateBox"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /nav bar-->
+    <!--body-->
+    <div id="mainSection" class="container-fluid main-section">
+        <div class="row" style="width: 100%;">
+            <div class="col-12">
+                <div class="location-time-row row">
+                    <div class="result-content-location col-8">
+                        <span id="resultLocation"></span>
+                    </div>
+                    <div class="result-content-time col-4">
+                        <span id="resultTime"></span>
+                    </div>
+                </div>
+                <div class="temp-row row">
+                    <div class="temp-f col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                            <p><span id="locationFar"></span>&#8457;</p>
+                    </div>
+                    <div id="weatherIconBox" class="weather-icon col-sm-12 col-md-4 col-lg-4 col-xl-4"></div>
+                    <div class="temp-c col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        <p><span id="locationCel"></span>&#8451;</p>
+                    </div>
+                </div>
+                <div class="condition-row row">
+                    <div class="condition-column col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <p>Low: <span id="outputMin" class="output-content"></span></p>
+                        <p>Condition: <span id="outputDescription" class="output-content"></span></p>
+                        <p>Humidity: <span id="outputHumidity" class="output-content"></span></p>
+                        <p>Wind Speed: <span id="outputWind" class="output-content"></span></p>
+                    </div>
+                    <div class="condition-column col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <p>High: <span id="outputMax" class="output-content"></span></p>
+                        <p>Sunset Time: <span id="outputSunset" class="output-content"></span></p>
+                        <p>Sunrise Time: <span id="outputSunrise" class="output-content"></span></p>
+                        <p>Lon/Lat: <span id="outputCords" class="output-content"></span></p>
+                    </div>
+                </div>
+                <div class="forecast-row row">
+                    <div id="day1" class="day col-sm-6 col-md-4 col-lg-2 col-xl-2">
+                        <p><span id="dayName1"></span></p>
+                        <span id="dayIcon1"></span>
+                        <p class="day-temp"><span id="dayTemp1"></span>&#8457;</p>
+                    </div>
+                    <div id="day2" class="day col-sm-6 col-md-4 col-lg-2 col-xl-2">
+                        <p><span id="dayName2"></span></p>
+                        <span id="dayIcon2"></span>
+                        <p class="day-temp"><span id="dayTemp2"></span>&#8457;</p>
+                    </div>
+                    <div id="day3" class="day col-sm-6 col-md-4 col-lg-2 col-xl-2">
+                        <p><span id="dayName3"></span></p>
+                        <span id="dayIcon3"></span>
+                        <p class="day-temp"><span id="dayTemp3"></span>&#8457;</p>
+                    </div>
+                    <div id="day4" class="day col-sm-6 col-md-4 col-lg-2 col-xl-2">
+                        <p><span id="dayName4"></span></p>
+                        <span id="dayIcon4"></span>
+                        <p class="day-temp"><span id="dayTemp4"></span>&#8457;</p>
+                    </div>
+                    <div id="day5" class="day col-sm-6 col-md-4 col-lg-2 col-xl-2">
+                        <p><span id="dayName5"></span></p>
+                        <span id="dayIcon5"></span>
+                        <p class="day-temp"><span id="dayTemp5"></span>&#8457;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/body-->
+    <!--footer message-->
+    <h6 class="footer-section">Created by Michael Wilmouth at wilmouthworks.com</h6>
+    <!--/footer message-->
+    <script src="js/convertions.js"></script>
+    <script src="js/weatherIcon.js"></script>
+    <script src="js/postData.js"></script>
+    <script src="js/apiGet.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

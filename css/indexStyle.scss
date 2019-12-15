@@ -1,0 +1,324 @@
+$tabletScreen: 1024px;
+$smallScreen: 768px;
+$smallerScreen: 576px;
+$moneyGreen: rgb(1,172,19);
+
+@mixin fontStandard($size){
+    font-family: 'Poppins', sans-serif;
+    font-size: $size;
+}
+@mixin flexAlignJustify($direction, $align, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+@mixin marginPadding($mar, $pad){
+    margin: $mar;
+    padding: $pad;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    overflow-x: hidden;
+}
+body{
+    background-color: rgb(190,190,190);
+}
+.search-section{
+    width: 100%;
+    text-align: center;
+    .logo-box{
+        background: linear-gradient(90deg, rgb(190,190,190), rgb(0,0,0));
+        letter-spacing: 2px;
+        @include flexAlignJustify(row, center, center);
+        @media (max-width: $smallScreen){
+            background: linear-gradient(90deg, rgb(0,0,0), rgb(160,160,160), rgb(0,0,0));
+        }
+        h1{
+            @include marginPadding(0px, 10px);
+            #logoWeather{
+                color: rgb(230,230,230);
+                @include fontStandard(26px);
+            }
+            #logoATM{
+                color: $moneyGreen;
+                @include fontStandard(32px);
+            }
+        }
+    }
+    .search-bar{
+        background-color: rgb(0,0,0);
+        @include marginPadding(0px, 0px);
+        @include fontStandard(24px);
+        @include flexAlignJustify(row, center, center);
+        .search-box{
+            @include marginPadding(0px, 2px 2px 2px 2px);
+            @media (max-width: $smallScreen){
+                padding: 10px 10px 10px 10px;
+            }
+            .search-content{
+                background-color: transparent;
+                border-width: 0px;
+                border-style: solid;
+                width: 100%;
+                height: 100%;
+                color: rgb(255,255,255);
+            }
+            #searchContent:focus{
+                outline: none;
+            }
+        }
+        .search-zip{
+            @include flexAlignJustify(row, center, center);
+            @include marginPadding(0px, 2px);
+            background-color: rgb(0,0,97);
+            color: rgb(255,255,255);
+            cursor: pointer;
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-right-color: rgb(0,0,0);
+            border-left-style: solid;
+            border-left-width: 1px;
+            border-left-color: rgb(0,0,0);
+            &:hover{
+                background-color: rgb(76,76,243);
+                color: rgb(0,0,0);
+                border-left-color: rgb(0,0,97);
+                border-right-color: rgb(0,0,97);
+            }
+            p{
+                @include marginPadding(0px, 0px);
+            }
+            @media (max-width: $tabletScreen){
+                font-size: 20px;
+            }
+            @media (max-width: $smallScreen){
+                font-size: 22px;
+                border-style: solid;
+                border-width: 1px;
+                border-color: rgb(0,0,0);
+            }
+        }
+        .search-city{
+            @include flexAlignJustify(row, center, center);
+            @include marginPadding(0px, 2px);
+            background-color: rgb(0,0,97);
+            color: rgb(255,255,255);
+            cursor: pointer;
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-right-color: rgb(0,0,0);
+            border-left-style: solid;
+            border-left-width: 1px;
+            border-left-color: rgb(0,0,0);
+            &:hover{
+                background-color: rgb(76,76,243);
+                color: rgb(0,0,0);
+                border-left-color: rgb(0,0,97);
+                border-right-color: rgb(0,0,97);
+            }
+            p{
+                @include marginPadding(0px, 0px);
+            }
+            @media (max-width: $tabletScreen){
+                font-size: 20px;
+            }
+            @media (max-width: $smallScreen){
+                font-size: 22px;
+                border-style: solid;
+                border-width: 1px;
+                border-color: rgb(0,0,0);
+            }
+        }
+        .date-box{
+            @include flexAlignJustify(row, center, center);
+            @include marginPadding(0px, 2px);
+            background-color: rgb(0,0,0);
+            color: rgb(255,255,255);
+            font-size: 22px;
+            p{
+                @include marginPadding(0px, 0px);
+            }
+            @media (max-width: $smallScreen){
+                font-size: 26px;
+            }
+        }
+    }
+}
+.main-section{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 0px;
+    @include flexAlignJustify(row, center, center);
+    width: 95%;
+    background-color: rgb(200,200,200);
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgb(160,160,160);
+    border-radius: 5px;
+    .location-time-row{
+        @include marginPadding(0px, 0px);
+        width: 100%;
+        .result-content-location{
+                text-align: center;
+                @include flexAlignJustify(row, center, center);
+                @include fontStandard(30px);
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                border-bottom-color: rgb(0,0,0);
+                @media (max-width: $tabletScreen){
+                    font-size: 40px;
+                    @include marginPadding(0px, 20px);
+                }
+                @media (max-width: $smallerScreen){
+                    font-size: 20px;
+                    @include marginPadding(0px, 5px);
+                }
+        }
+        .result-content-time{
+                text-align: center;
+                @include flexAlignJustify(row, center, center);
+                @include fontStandard(20px);
+                border-left-style: solid;
+                border-left-width: 2px;
+                border-left-color: rgb(0,0,0);
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                border-bottom-color: rgb(0,0,0);
+                @media (max-width: $tabletScreen){
+                    font-size: 40px;
+                    @include marginPadding(0px, 20px);
+                }
+                @media (max-width: $smallerScreen){
+                    font-size: 20px;
+                    @include marginPadding(0px, 5px);
+                }
+        }
+    }
+    .temp-row{
+        width: 100%;
+        text-align: center;
+        @include marginPadding(0px, 2px);
+        @include fontStandard(50px);
+        .temp-f{
+            @include flexAlignJustify(column, center, center);
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            border-bottom-color: rgb(210,210,210);
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-right-color: rgb(210,210,210);
+            @media (max-width: $tabletScreen){
+                font-size: 60px;
+            }
+            @media (max-width: $smallerScreen){
+                font-size: 50px;
+            }
+        }
+        .weather-icon{
+            @include flexAlignJustify(column, center, center);
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            border-bottom-color: rgb(210,210,210);
+        }
+        .temp-c{
+            @include flexAlignJustify(column, center, center);
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            border-bottom-color: rgb(210,210,210);
+            border-left-style: solid;
+            border-left-width: 1px;
+            border-left-color: rgb(210,210,210);
+            @media (max-width: $tabletScreen){
+                font-size: 60px;
+            }
+            @media (max-width: $smallerScreen){
+                font-size: 50px;
+            }
+        }
+    }
+    .condition-row{
+        @include marginPadding(0px, 30px);
+        @include fontStandard(22px);
+        text-align: center;
+        background-color: rgb(210,210,210);
+        color: rgb(0,0,0);
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(190,190,190);
+        border-radius: 1px;
+        @media (max-width: $tabletScreen){
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: $smallerScreen){
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .condition-column{
+            p{
+                margin: 30px;
+                @media (max-width: $tabletScreen){
+                    font-size: 28px;
+                }
+                @media (max-width: $smallerScreen){
+                    font-size: 20px;
+                    @include marginPadding(10px, 5px);
+                }
+            }
+            .output-content{
+                font-size: 24px;
+                color: rgb(100,100,100);
+                 @media (max-width: $tabletScreen){
+                    font-size: 30px;
+                }
+                @media (max-width: $smallerScreen){
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+    .forecast-row{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        text-align: center;
+        @include flexAlignJustify(row, center, center);
+        @media (max-width: $tabletScreen){
+            padding: 30px;
+        }
+        .day{
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgb(50,50,50);
+            border-radius: 2px;
+            font-size: 26px;
+            @media (max-width: $tabletScreen){
+                @include marginPadding(5px, 10px);
+                font-size: 24px;
+            }
+            @media (max-width: $smallerScreen){
+                @include marginPadding(2px, 5px);
+            }
+            @media (max-width: 1150px){
+                font-size: 20px;
+            }
+            .day-temp{
+                font-size: 28px;
+                @media (max-width: $tabletScreen){
+                    font-size: 26px;
+                }
+            }
+        }
+    }
+}
+.footer-section{
+    width: 100%;
+    text-align: center;
+    @include fontStandard(12px);
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+}
