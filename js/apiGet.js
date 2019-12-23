@@ -19,6 +19,7 @@ const postWeatherCity = (city) => {
         }else{
             console.log("ERROR CONNECTING TO SERVER...");
             alert("Please enter a valid city name.");
+            giveErrorIcon();
         }
     }
     xhr.send();
@@ -38,6 +39,7 @@ const postWeatherZip = (zip) => {
         }else{
             console.log("ERROR CONNECTING TO SERVER...");
             alert("Please enter a valid zip code.");
+            giveErrorIcon();
         }
     }
     xhr.send();

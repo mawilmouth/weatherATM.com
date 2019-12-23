@@ -4,24 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="WeatherATM is a one-stop-shop to look up zip codes or cities to get the current weather conditions and the five day forecast for the area">
-    <meta name="keywords" content="knoxville,weather,forecast,time,sunrise,sunset,zipcode,zip code,city,temperature,degree,celcius,wind speed,humidity">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="WeatherATM">
-    <meta property="og:title" content="WeatherATM | Withdraw Local Weather at the Moment">
-    <meta name="geo:region" content="US-TN">
-    <meta name="geo.placename" content="Knoxville">
-    <meta name="geo.position" content="35.960638;-86.920739">
-    <title>Weather ATM | Withdraw Local Weather At The Moment</title>
+    <title>Weather ATM - Withdraw Local Weather At The Moment</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/indexStyle.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <!-- font-family: 'Poppins', sans-serif; -->
-    <!--Created by: Michael Wilmouth-->
-    <!--Author: wilmouthworks.com-->
 </head>
 <body> 
-    <!--nav bar-->
     <div id="searchSection" class="container-fluid search-section">
         <div class="row" style="height: 100%;">
             <div class="logo-box col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -47,8 +36,6 @@
             </div>
         </div>
     </div>
-    <!-- /nav bar-->
-    <!--body-->
     <div id="mainSection" class="container-fluid main-section">
         <div class="row" style="width: 100%;">
             <div class="col-12">
@@ -113,10 +100,18 @@
             </div>
         </div>
     </div>
-    <!--/body-->
-    <!--footer message-->
+    <!--loading screen-->
+    <div id="loadingScreen" class="loading-container hide-section container-fluid">
+        <div class="row loading-row">
+            <div class="col-12 loading-col">
+                Loading your weather Data....
+            </div>
+        </div>
+
+    </div>
+    <!--/loading screen-->
     <h6 class="footer-section">Created by Michael Wilmouth at wilmouthworks.com</h6>
-    <!--/footer message-->
+    <script src="js/loadingScreen.js"></script>
     <script src="js/convertions.js"></script>
     <script src="js/weatherIcon.js"></script>
     <script src="js/postData.js"></script>

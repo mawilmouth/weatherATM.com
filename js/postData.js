@@ -6,41 +6,40 @@
 */
 const postWeatherData = (jsonData) => {
     var localData = jsonData;
-    //posy city/town name
     locationBox.textContent = localData.name;
-    //calc and post the time based on local timezone
+
     var getMilTime = convertTime(localData.timezone);
     var getStandardTime = militaryToStandard(getMilTime);
     timeBox.textContent = getStandardTime;
-    //post local date
+
     var localDate = calcDate(getMilTime);
     dateBox.textContent = localDate;
-    //calc and post temperature
+
     var kelvinTemp = localData.main.temp;
     var farTemp = convertF(kelvinTemp);
     var celTemp = convertC(kelvinTemp);
     farBox.textContent = farTemp;
     celBox.textContent = celTemp;
-    //algo to determin the correct icon to display
+
     findIcon(localData, true, 0);
-    //calc and post min/max temperatures
+
     var kelvinMax = localData.main.temp_max;
     var kelvinMin = localData.main.temp_min;
     var max = convertF(kelvinMax);
     var min = convertF(kelvinMin);
     weatherMax.innerHTML = max + "&#8457;";
     weatherMin.innerHTML = min + "&#8457;";
-    //post short description
+
     var description = localData.weather[0].description;
     weatherDescribe.textContent = description.charAt(0).toUpperCase() + description.slice(1);
-    //post humidty level
+
     var humidity = localData.main.humidity;
     weatherHumidity.textContent = humidity + "%";
-    //calc and post wind speed
+
     var mps = localData.wind.speed;
     var mph = convertWindSpeed(mps);
     weatherWind.textContent = mph + " mph";
-    //calc and post local sunrise and sunset times
+
     var unixSunrise = localData.sys.sunrise;
     var unixSunset = localData.sys.sunset;
     var unixTimeZone = localData.timezone;
@@ -48,12 +47,11 @@ const postWeatherData = (jsonData) => {
     var sunset = getTime(unixSunset, unixTimeZone);
     weatherSunrise.textContent = sunrise;
     weatherSunset.textContent = sunset;
-    //post lon/lat
+
     var longitude = localData.coord.lon;
     var latitude = localData.coord.lat;
     weatherCords.textContent = longitude + "/" + latitude; 
 }
-//this function is called by postForecastData to post the forecast dates
 const postForecastDay = (num, jsonData, listNum) => {
     var elemNum = num;
     var data = jsonData;

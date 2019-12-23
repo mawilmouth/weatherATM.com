@@ -2,6 +2,8 @@
     -this file holds all search functions: 
         -searchWatch is called by main.js and is used to handle ALL search functionality
             --search watch establishes event listeners and will pass in the user input to search
+        -to clear the search bar after a search is made
+
     -Created by: Michael Wilmouth
 */
 //triggers the zip search -> call the post functions
@@ -26,24 +28,28 @@ const searchCity = (search) => {
     searchBar.value = "";
 }
 const searchWatch = () => {
-    searchBar.addEventListener("keyup", (function(e){
+    searchBar.addEventListener("keyup", (async function(e){
         if(e.keyCode == 13){
             var value = searchBar.value;
             if(Number(value[0]) > 0){
-                searchZip(value);
+                await searchZip(value);
+                loadingData();
             }else{
-                searchCity(value);
+                await searchCity(value);
+                loadingData();
             }
         }
     }));
-    zipBtn.addEventListener("click", (function(){
+    zipBtn.addEventListener("click", (async function(){
         var search = searchBar.value;
-        searchZip(search);
+        await searchZip(search);
+        loadingData();
     }));
-    cityBtn.addEventListener("click", (function(){
+    cityBtn.addEventListener("click", (async function(){
         var search = searchBar.value;
         search += ",us";
-        searchCity(search);
+        await searchCity(search);
+        loadingData();
     }));
 }
 searchWatch();

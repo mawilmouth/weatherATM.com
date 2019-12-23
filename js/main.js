@@ -9,6 +9,10 @@ const apiZipForecast = "http://api.openweathermap.org/data/2.5/forecast?zip=";
 const apiCityWeather = "http://api.openweathermap.org/data/2.5/weather?q=";
 const apiCityForecast = "http://api.openweathermap.org/data/2.5/forecast?q="
 const apiKey = "&appid=cd699991ab3a5434041fb6dac06cfa3a";
+//sections begin
+const mainApp = document.getElementById("mainSection");
+const loadingContain = document.getElementById("loadingScreen");
+//sections end
 //search buttons begin
 const searchBar = document.getElementById("searchContent");
 const zipBtn = document.getElementById("zipButton");
@@ -32,7 +36,11 @@ const weatherCords = document.getElementById("outputCords");
 //weather items end
 const main = () => {
     var startUpSearch = "knoxville,us";
-    postWeatherCity(startUpSearch);
-    postForecastCity(startUpSearch);
+    async function startPage(){
+        loadingData();
+        await postWeatherCity(startUpSearch);
+        await postForecastCity(startUpSearch);
+    }
+    startPage();
 }
 main();

@@ -3,8 +3,10 @@
     -The API provides a list of possible conditions
     -The conditions will be in an array named after the weather icon to be used
     -Loop throught the array and compair result with the different icons to find the correct icon 
+
     Created by: Michael Wilmouth
 */
+
 /*
     weather icons:
         <img src="https://img.icons8.com/plasticine/100/000000/sun.png">                -clear day
@@ -16,13 +18,15 @@
         <img src="https://img.icons8.com/plasticine/100/000000/fog-night.png">          -cloudy-night
         <img src="https://img.icons8.com/pastel-glyph/100/000000/wind--v1.png">         -wind
 */
-//arrays contain the different id's that the API returns to determin the correct icon to display
 const storm = [200,201,202,210,211,212,221,230,231,232];
 const rain = [300,301,302,310,311,312,313,314,321,500,501,502,503,504,511,520,521,522,531];
 const snow = [600,601,602,611,612,613,615,616,620,621,622];
 const atmosphere = [701,711,721,731,741,751,761,762,771,781];
 const clear = [800];
 const clouds = [801,802,803,804];
+
+//weatherIconParent -> place the icon as a child to this element
+
 //loop through all condition arrays and return the condition value
 const findCondition = (idNum) => {
     var id = idNum;
@@ -194,12 +198,16 @@ const findIcon = (jsonData, weatherPost, forecastDay) => {
     }
 }
 //removes current weather condition icon to display new from search result
-//prevents multiple icons from displaying
 const removeIcon = () => {
     if(weatherIconParent.firstChild){
         console.log("Remove current icon");
-        var child = document.getElementById("icon");
-        weatherIconParent.removeChild(child);
+        var childIcon = document.getElementById("icon");
+        var childIconError = document.getElementById("iconError");
+        try{
+            weatherIconParent.removeChild(childIcon);
+        }catch{
+            weatherIconParent.removeChild(childIconError);
+        }
     }
     for(var i  = 1; i <= 5; i++){
         var forecastDayElem = document.getElementById("dayIcon" + i);
@@ -208,4 +216,11 @@ const removeIcon = () => {
             forecastDayElem.removeChild(dayChild);
         }
     }
+}
+//this will create an element of text that will display if the user give a bad search
+const giveErrorIcon = () => {
+    var newElem = document.createElement("DIV");
+    newElem.textContent = "404";
+    newElem.setAttribute("id", "iconError");
+    weatherIconParent.appendChild(newElem);
 }

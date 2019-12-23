@@ -318,7 +318,27 @@ body{
     width: 100%;
     text-align: center;
     @include fontStandard(12px);
+    @include marginPadding(0px, 2px)
     position: relative;
     bottom: 0px;
     left: 0px;
+}
+.loading-container{
+    @include marginPadding(0px, 20px);
+    @include fontStandard(50px);
+    background-color: rgb(200,200,200);
+    color: rgb(0,0,0);
+    height: 300px;
+    .loading-row{
+        @include marginPadding(0px, 5px);
+        @include flexAlignJustify(row, center, center);
+        height: 100%;
+        .loading-col{
+            height: 50%;
+            text-align: center;
+        }
+    }
+}
+.hide-section{
+    display: none;
 }
